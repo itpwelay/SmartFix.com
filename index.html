@@ -3,97 +3,561 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Network (All In One Studio)</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Professional Website Template</title>
+    <meta name="description" content="A professional, modern single-page website template.">
+    <style>
+        /* --- Reset & Base Styles --- */
+        :root {
+            --primary-bg: #222831; /* Dark Charcoal */
+            --secondary-bg: #393E46; /* Darker Gray for elements */
+            --text-color: #EEEEEE;   /* Light Gray/Off-White */
+            --accent-color: #00ADB5; /* Electric Blue/Teal */
+            --hover-accent-color: #007A7F;
+            --font-primary: 'Arial', sans-serif; /* Fallback, consider Google Fonts */
+            --font-secondary: 'Georgia', serif; /* For accents or headings */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px; /* Base font size for rem units */
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-secondary);
+            color: var(--accent-color);
+            margin-bottom: 0.75em;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.8rem; letter-spacing: 1px; }
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.6rem; }
+        p { margin-bottom: 1rem; font-size: 1rem; }
+        a { color: var(--accent-color); text-decoration: none; }
+        a:hover { color: var(--hover-accent-color); text-decoration: underline; }
+
+        /* --- Layout & Container --- */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--secondary-bg);
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        /* --- Header & Navigation --- */
+        .main-header {
+            background-color: var(--secondary-bg);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0; /* Reduced padding for header container */
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            font-family: var(--font-secondary);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 2rem;
+        }
+
+        .main-nav ul li a {
+            color: var(--text-color);
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav ul li a:hover,
+        .main-nav ul li a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hamburger Menu for Mobile */
+        .menu-toggle {
+            display: none; /* Hidden by default */
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080.png?text=Hero+Background+Image') no-repeat center center/cover; /* Replace with your image */
+            /* For a more abstract/gradient background:
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%); */
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem; /* Larger for hero */
+            margin-bottom: 1rem;
+            color: #fff; /* Brighter for hero title */
+        }
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-bg); /* High contrast for button text */
+            padding: 0.8rem 1.8rem;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn:hover {
+            background-color: var(--hover-accent-color);
+            color: var(--text-color);
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+        .btn-secondary:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+        }
+
+        /* --- About Section --- */
+        #about .container {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        #about .about-text {
+            flex: 1;
+        }
+        #about .about-image {
+            flex: 0 0 300px; /* Fixed width for image container */
+            height: 300px;
+            background-color: var(--secondary-bg); /* Placeholder */
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            /* Replace with <img src="your-image.jpg" alt="Descriptive alt text"> */
+        }
+         #about .about-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+
+        /* --- Services Section --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-item {
+            background-color: var(--secondary-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .service-item .icon {
+            font-size: 3rem; /* Placeholder for icon font or SVG */
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            /* Example: Use FontAwesome or SVG here */
+        }
+        .service-item h3 {
+             color: var(--text-color); /* Overriding default h3 color for better contrast on card */
+        }
+
+        /* --- Call to Action (CTA) Section --- */
+        #cta {
+            background-color: var(--accent-color);
+            text-align: center;
+        }
+        #cta h2, #cta p {
+            color: var(--primary-bg); /* High contrast text on accent bg */
+        }
+        #cta .btn {
+            background-color: var(--text-color);
+            color: var(--primary-bg);
+            margin-top:1rem;
+        }
+        #cta .btn:hover {
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            border-color: var(--primary-bg);
+        }
+
+
+        /* --- Contact Section --- */
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            background: var(--secondary-bg);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 4px;
+            border: 1px solid #555;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px var(--accent-color);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* --- Footer --- */
+        .main-footer {
+            background-color: var(--secondary-bg);
+            color: #aaa;
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+        .main-footer p {
+            margin-bottom: 0;
+        }
+        .main-footer a {
+            color: var(--accent-color);
+        }
+
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .hero-content h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+
+            .main-header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu-toggle {
+                display: block; /* Show hamburger */
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .main-nav {
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .main-nav ul {
+                display: none; /* Hide nav links by default */
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .main-nav ul.active {
+                display: flex; /* Show when active */
+            }
+
+            .main-nav ul li {
+                margin: 0.5rem 0;
+                text-align: center;
+            }
+
+            #about .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            #about .about-image {
+                margin-top: 2rem;
+                width: 80%; /* Adjust image size */
+                max-width: 250px;
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                font-size:14px; /* Slightly smaller base font for small screens */
+            }
+            .hero-content h1 { font-size: 2rem; }
+            .hero-content .subtitle { font-size: 1.1rem; }
+            .container { width: 95%; }
+            .service-item { padding: 1.5rem; }
+            .contact-form { padding: 1.5rem; }
+        }
+
+        /* Accessibility: Focus Visible (for keyboard navigation) */
+        :focus-visible {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+        .btn:focus-visible {
+            outline-color: var(--text-color); /* Ensure visibility on accent background */
+        }
+
+    </style>
 </head>
 <body>
-    <header>
+
+    <header class="main-header" role="banner">
         <div class="container">
-            <h1>1Network <span class="subtitle">(All In One Studio)</span></h1>
-            <nav>
+            <a href="#hero" class="logo">YourLogo</a>
+            <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
+            <nav class="main-nav" role="navigation">
                 <ul>
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section id="hero" class="hero-section">
-        <div class="container">
-            <h2>All In One Studio</h2>
-            <p> 📢 သင့်လုပ်ငန်းကို အဆင့်မြှင့်တင်ပေးမယ့် ပရော်ဖက်ရှင်နယ် ဝန်ဆောင်မှုများ! </p>  
+    <main role="main">
+        <section id="hero" aria-labelledby="hero-title">
+            <div class="container hero-content">
+                <h1 id="hero-title">Innovate. Create. Inspire.</h1>
+                <p class="subtitle">We build cutting-edge digital experiences that drive results and elevate your brand.</p>
+                <a href="#services" class="btn">Explore Services</a>
+                <a href="#contact" class="btn btn-secondary" style="margin-left:10px;">Get In Touch</a>
+            </div>
+        </section>
 
-<p>သင့်လုပ်ငန်းကို အွန်လိုင်းနဲ့အော့ဖ်လိုင်း အောင်မြင်စေဖို့ ကျွန်ုပ်တို့က အကောင်းဆုံး ဝန်ဆောင်မှုတွေကို ပေးပါတယ်!  </p>
-
-<p>✅ Boost & Promote Service – သင့်စာမျက်နှာ/ပစ္စည်းကို လူများများရောက်အောင် ကြော်ငြာတင်ပေးခြင်း  </p>
-<p>✅ Sale Pro Account – လူမှန်ရောက်၊ အရောင်းတက်စေမယ့် အကောင်းဆုံး အကောင့်ဝန်ဆောင်မှု  </p>
-<p>✅ Logo Design Service – သင့်လုပ်ငန်းအတွက် ထင်ရှားမှုရှိပြီး အရည်အသွေးပြည့်ဝတဲ့ လိုဂိုဒီဇိုင်း  </p>
-<p>✅ Google Maps Marketing – Google Maps ပေါ်မှာ သင့်ဆိုင်ကို လွယ်လွယ်ကူကူ ရှာဖွေနိုင်စေရန် SEO နဲ့ ထိထိရောက်ရောက် ကြော်ငြာပေးခြင်း  </p>
-<p>✅ Online Training Group – အွန်လိုင်းရောင်းဝယ်ရေး၊ ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေး နည်းပညာများ သင်ကြားပေးခြင်း  </p>
-
-<p>🔹 ဘာကြောင့် ကျွန်ုပ်တို့ကို ရွေးချယ်သင့်သလဲ?  </p>
-<p>✔ အတွေ့အကြုံရှိ ပရော်ဖက်ရှင်နယ်အဖွဲ့  </p>
-<p>✔ စျေးနှုန်းသက်သာ၊ အရည်အသွေးအပြည့်အဝ  </p>
-<p>✔ အချိန်မီ အလုပ်အမြန်ဆုံးဖြစ်အောင် ဆောင်ရွက်ပေးခြင်း  </p>
-
-<p>📞 ဆက်သွယ်ရန်: 09967510401 (သို့) [Messenger/Page Link] </p> 
-<p>📍 လိပ်စာ: [သင့်လိပ်စာ/ဧရိယာ]  </p>
-
-<p>သင့်လုပ်ငန်းအောင်မြင်ရေး အတွက် ယခုပဲ ဆက်သွယ်လိုက်ပါ! 🚀  
-
-            </p>
-            <p>Your one-stop solution for all your creative needs.</p>
-            <a href="#services" class="btn">Explore Our Services</a>
-        </div>
-    </section>
-
-    <section id="services" class="services-section">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="service-grid">
-                <div class="service-item">
-                    <h3>Web Design & Development</h3>
-                    <p>Creating beautiful and functional websites.</p>
+        <section id="about" aria-labelledby="about-title">
+            <div class="container">
+                <div class="about-text">
+                    <h2 id="about-title">About Us</h2>
+                    <p>We are a passionate team of designers, developers, and strategists dedicated to crafting beautiful and functional websites. Our mission is to help businesses succeed in the digital landscape through innovative solutions and a client-centric approach.</p>
+                    <p>With years of experience, we understand the importance of a strong online presence and strive to deliver projects that not only meet but exceed expectations. We believe in collaboration, transparency, and continuous learning.</p>
                 </div>
-                <div class="service-item">
-                    <h3>Graphic Design</h3>
-                    <p>Logos, branding, and visual content.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Video Production</h3>
-                    <p>High-quality video creation and editing.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Digital Marketing</h3>
-                    <p>Strategies to boost your online presence.</p>
+                <div class="about-image" role="img" aria-label="Team collaborating on a project">
+                     <img src="https://via.placeholder.com/300x300.png?text=Our+Awesome+Team" alt="A diverse team working together in a modern office.">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>Get in touch for a consultation or to learn more about our services.</p>
-            <form>
-                <input type="text" placeholder="Your Name">
-                <input type="email" placeholder="Your Email">
-                <textarea placeholder="Your Message"></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-        </div>
-    </section>
+        <section id="services" aria-labelledby="services-title">
+            <div class="container">
+                <h2 id="services-title" style="text-align: center;">Our Services</h2>
+                <p style="text-align: center; max-width: 600px; margin-left:auto; margin-right:auto;">We offer a comprehensive suite of services to bring your digital vision to life.</p>
+                <div class="services-grid">
+                    <article class="service-item">
+                        <div class="icon" aria-hidden="true">&#128187;</div> <h3>Web Design</h3>
+                        <p>Creating visually stunning and user-friendly websites tailored to your brand.</p>
+                    </article>
+                    <article class="service-item">
+                        <div class="icon" aria-hidden="true">&#128241;</div> <h3>Responsive Development</h3>
+                        <p>Ensuring your website looks and works perfectly on all devices, from desktops to smartphones.</p>
+                    </article>
+                    <article class="service-item">
+                        <div class="icon" aria-hidden="true">&#128200;</div> <h3>Digital Strategy</h3>
+                        <p>Crafting effective strategies to boost your online presence and achieve your business goals.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-    <footer>
+        <section id="cta" aria-labelledby="cta-title">
+            <div class="container">
+                <h2 id="cta-title">Ready to start your project?</h2>
+                <p>Let's discuss how we can help you achieve your goals. Get in touch today!</p>
+                <a href="#contact" class="btn">Contact Us Now</a>
+            </div>
+        </section>
+
+        <section id="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title" style="text-align: center;">Get In Touch</h2>
+                <p style="text-align: center; max-width: 600px; margin-left:auto; margin-right:auto;">Have a question or a project in mind? Fill out the form below, and we'll get back to you as soon as possible.</p>
+                <form class="contact-form" action="#" method="POST"> <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required aria-required="true"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer" role="contentinfo">
         <div class="container">
-            <p>&copy; 2025 1Network (All In One Studio). All rights reserved.</p>
+            <p>&copy; <span id="currentYear"></span> Your Company Name. All Rights Reserved.</p>
+            <p>Designed with <span style="color: var(--accent-color);" aria-label="love">&#10084;</span> by You. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // --- Basic Mobile Menu Toggle ---
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNavUl = document.querySelector('.main-nav ul');
+
+        menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            mainNavUl.classList.toggle('active');
+        });
+
+        // --- Smooth scroll for navigation links & Update active link ---
+        const navLinks = document.querySelectorAll('.main-nav a, .logo, .hero-content a.btn');
+        const sections = document.querySelectorAll('section');
+
+        function changeActiveLink() {
+            let index = sections.length;
+
+            while(--index && window.scrollY + 100 < sections[index].offsetTop) {} // 100 is an offset
+
+            navLinks.forEach((link) => link.classList.remove('active'));
+            // Ensure there's a link that corresponds to the current section
+            const activeLink = document.querySelector(`.main-nav a[href="#${sections[index].id}"], .logo[href="#${sections[index].id}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // For internal links, prevent default and scroll smoothly
+                if (this.hash !== "") {
+                    e.preventDefault();
+                    const hash = this.hash;
+                    const targetElement = document.querySelector(hash);
+                    if (targetElement) {
+                         targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        // If mobile menu is open, close it
+                        if (mainNavUl.classList.contains('active')) {
+                            menuToggle.setAttribute('aria-expanded', 'false');
+                            mainNavUl.classList.remove('active');
+                        }
+                    }
+                }
+            });
+        });
+
+        // --- Update active link on scroll ---
+        window.addEventListener('scroll', changeActiveLink);
+        changeActiveLink(); // Call on load
+
+        // --- Update Footer Year ---
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // --- Accessibility: Close mobile menu if user clicks outside of it ---
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = mainNavUl.contains(event.target);
+            const isClickOnToggle = menuToggle.contains(event.target);
+
+            if (!isClickInsideNav && !isClickOnToggle && mainNavUl.classList.contains('active')) {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                mainNavUl.classList.remove('active');
+            }
+        });
+
+    </script>
+
 </body>
 </html>
