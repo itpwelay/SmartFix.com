@@ -3,227 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Network - All In One Studio | Digital Solutions</title>
+    <title>1Network - All In One Studio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700;900&display=swap" rel="stylesheet">
-    </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 <body>
 
-    <header id="header">
-        <nav class="container">
-            <a href="#hero" class="logo-container">
-                <img src="image.png" alt="1Network Logo" class="logo-img">
-                <div class="logo-text">
-                    <span class="company-name-main">1Network</span>
-                    <span class="tagline-header">All In One Studio</span>
-                </div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#hero" class="active">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="#contact" class="btn btn-nav-cta">Get Quote</a>
-            <button class="menu-toggle" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
-        </nav>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="image.png" alt="1Network Logo" id="logo">
+                <h1>1Network <span class="tagline">(All In One Studio)</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="hero" class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1 class="hero-title-blue">Empowering Your <span class="text-red">Digital</span> Presence</h1>
-            <p class="subtitle text-white">1Network: Your All-In-One Studio for innovative digital services, from promotion to premium accounts and captivating design.</p>
-            <div class="hero-buttons">
-                <a href="#services" class="btn btn-hero-primary">Our Services <i class="fas fa-arrow-right"></i></a>
-                <a href="#contact" class="btn btn-hero-secondary">Contact Us</a>
-            </div>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to 1Network</h2>
+            <p>Your One-Stop Solution for Digital Growth and Creative Services.</p>
+            <a href="#services" class="cta-button">Our Services</a>
         </div>
     </section>
 
-    <section id="services" class="services-section section-on-gray">
+    <section id="services" class="services-section">
         <div class="container">
-            <h2 class="section-title text-blue">Our <span class="text-red">Services</span></h2>
-            <p class="section-subtitle text-dark-gray">Comprehensive solutions to elevate your brand and streamline your digital needs.</p>
+            <h2>Our Services</h2>
             <div class="service-grid">
-                <div class="service-card">
-                    <div class="service-icon-bg"><i class="fas fa-bullhorn service-icon text-blue"></i></div>
-                    <h3 class="text-blue">Boost & Promote Services</h3>
-                    <p class="text-dark-gray">Skyrocket your visibility across Facebook, TikTok, YouTube, and more. We design and execute targeted campaigns for maximum impact.</p>
-                    <a href="#contact" class="service-link text-red">Learn More <i class="fas fa-chevron-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon-bg"><i class="fas fa-gem service-icon text-blue"></i></div>
-                    <h3 class="text-blue">Sale Premium Accounts</h3>
-                    <p class="text-dark-gray">Unlock exclusive features with genuine premium accounts for CapCut, Netflix, Zoom, Canva Pro, and other essential tools.</p>
-                    <a href="#contact" class="service-link text-red">Explore Accounts <i class="fas fa-chevron-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon-bg"><i class="fas fa-pencil-ruler service-icon text-blue"></i></div>
-                    <h3 class="text-blue">Logo Design Service</h3>
-                    <p class="text-dark-gray">Define your brand with unique logos, cover photos, business cards, and complete visual identity packages crafted by experts.</p>
-                    <a href="#contact" class="service-link text-red">Get Designing <i class="fas fa-chevron-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon-bg"><i class="fas fa-users-class service-icon text-blue"></i></div>
-                    <h3 class="text-blue">Online Training Groups</h3>
-                    <p class="text-dark-gray">Empower yourself or your team with practical skills through our online training groups. (Specific course details coming soon!)</p>
-                    <a href="#contact" class="service-link text-red">Join a Group <i class="fas fa-chevron-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about-section section-on-gray">
-        <div class="container card-like-section">
-            <h2 class="section-title text-blue">About <span class="text-red">1Network</span> Studio</h2>
-            <div class="about-content-grid">
-                <div class="about-text-content">
-                    <p class="founder-intro text-dark-gray">Founded by <strong class="text-blue">Saw Eh Pwe Soe</strong>, 1Network (All In One Studio) is passionately committed to navigating the complexities of the digital world for you. We are more than just a service provider; we are your strategic partner in achieving online excellence.</p>
-                    <p class="text-dark-gray">Our mission is to deliver innovative, high-quality digital solutions tailored to your unique needs. From boosting your online presence to equipping you with premium tools and crafting unforgettable brand identities, we focus on delivering measurable results and fostering long-term client relationships.</p>
-                    <h4 class="text-blue">Why Choose Us?</h4>
-                    <ul>
-                        <li class="text-dark-gray"><i class="fas fa-check-circle text-red"></i> Client-Centric Approach</li>
-                        <li class="text-dark-gray"><i class="fas fa-check-circle text-red"></i> Results-Driven Strategies</li>
-                        <li class="text-dark-gray"><i class="fas fa-check-circle text-red"></i> Creative & Technical Expertise</li>
-                        <li class="text-dark-gray"><i class="fas fa-check-circle text-red"></i> Commitment to Quality</li>
-                    </ul>
-                </div>
-                <div class="about-image-content">
-                    <img src="https://via.placeholder.com/500x550?text=1Network+Team+Vibes" alt="1Network Studio - Modern Digital Agency">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="portfolio-section section-on-gray">
-        <div class="container">
-            <h2 class="section-title text-blue">Our <span class="text-red">Portfolio</span></h2>
-            <p class="section-subtitle text-dark-gray">A showcase of our creative solutions and successful projects. (More examples coming soon!)</p>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="https://via.placeholder.com/400x300/0D47A1/FFFFFF?text=Social+Media+Success" alt="Project 1">
-                    <div class="portfolio-overlay"><h3 class="text-white">Social Media Campaign</h3></div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://via.placeholder.com/400x300/D32F2F/FFFFFF?text=Striking+Logo+Design" alt="Project 2">
-                    <div class="portfolio-overlay"><h3 class="text-white">Corporate Logo Design</h3></div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://via.placeholder.com/400x300/607D8B/FFFFFF?text=Web+Platform+Dev" alt="Project 3">
-                    <div class="portfolio-overlay"><h3 class="text-white">E-Learning Platform</h3></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section section-on-gray">
-        <div class="container card-like-section">
-            <h2 class="section-title text-blue">Get In <span class="text-red">Touch</span></h2>
-            <p class="section-subtitle text-dark-gray">Ready to start your next project or have a question? We're here to help!</p>
-            <div class="contact-wrapper">
-                <div class="contact-form-container">
-                    <form id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name" class="text-blue">Full Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="text-blue">Email Address</label>
-                                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="text-blue">Phone Number (Optional)</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+959 XXX XXXXXX">
-                        </div>
-                        <div class="form-group">
-                            <label for="service_interest" class="text-blue">Service Interested In</label>
-                            <select id="service_interest" name="service_interest">
-                                <option value="">-- Select a Service --</option>
-                                <option value="boost_promote">Boost & Promote Services</option>
-                                <option value="premium_accounts">Sale Premium Account</option>
-                                <option value="logo_design">Logo Design Service</option>
-                                <option value="online_training">Online Training Groups</option>
-                                <option value="other">Other Inquiry</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="text-blue">Your Message</label>
-                            <textarea id="message" name="message" rows="6" placeholder="Tell us about your project or question..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-form-submit">Send Message <i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-                <div class="contact-info-container">
-                    <h3 class="text-blue">Our Contact Information</h3>
-                    <p class="text-dark-gray">We're available to discuss your needs and how we can assist you in achieving your digital goals.</p>
-                    <ul class="contact-details-list">
-                        <li class="text-dark-gray"><i class="fas fa-phone-alt text-red"></i> <a href="tel:+959967510401" class="text-dark-gray hover-text-red">+959967510401</a></li>
-                        <li class="text-dark-gray"><i class="fas fa-envelope text-red"></i> <a href="mailto:itpwelay@gmail.com" class="text-dark-gray hover-text-red">itpwelay@gmail.com</a></li>
-                        <li class="text-dark-gray"><i class="fas fa-map-marker-alt text-red"></i> Based in Myanmar (Burma) <br><span style="font-size:0.8em; color: #555;">(Remote & local projects welcome)</span></li>
-                    </ul>
-                    <h4 class="text-blue">Connect on Social Media:</h4>
-                    <div class="social-links-contact">
-                        <a href="https://facebook.com/" target="_blank" aria-label="Facebook" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://tiktok.com/" target="_blank" aria-label="TikTok" class="social-icon tiktok"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://github.com/" target="_blank" aria-label="GitHub" class="social-icon github"><i class="fab fa-github"></i></a>
+                <div class="service-item">
+                    <i class="fas fa-rocket service-icon"></i>
+                    <h3>Boost & Promote Services</h3>
+                    <p>Elevate your presence on Facebook, TikTok, YouTube, and more. Reach a wider audience and grow your brand.</p>
                     </div>
+                <div class="service-item">
+                    <i class="fas fa-user-shield service-icon"></i>
+                    <h3>Sale Premium Accounts</h3>
+                    <p>Get access to premium features on CapCut, Netflix, Zoom, and other popular platforms at great prices.</p>
+                    </div>
+                <div class="service-item">
+                    <i class="fas fa-palette service-icon"></i>
+                    <h3>Logo Design Service</h3>
+                    <p>Professional logos, cover photos, business cards, and branding materials tailored to your vision.</p>
                 </div>
+                <div class="service-item">
+                    <i class="fas fa-map-marked-alt service-icon"></i>
+                    <h3>Google Maps Marketing</h3>
+                    <p>Optimize your Google My Business profile and improve your local search visibility to attract more customers.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-users service-icon"></i>
+                    <h3>Online Training Groups</h3>
+                    <p>Join our expert-led online training sessions to master new skills. (Details coming soon!).</p>
+                    </div>
             </div>
         </div>
     </section>
 
-    <footer id="footer">
+    <section id="about" class="about-section">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-about">
-                    <img src="image.png" alt="1Network Logo Footer" class="footer-logo-img">
-                    <p class="footer-company-name text-white">1Network <span class="text-red">(All In One Studio)</span></p>
-                    <p class="text-light-gray">Your trusted partner for innovative digital solutions and creative excellence.</p>
-                </div>
-                <div class="footer-col">
-                    <h4 class="text-white">Quick <span class="text-red">Links</span></h4>
-                    <ul>
-                        <li><a href="#hero" class="text-light-gray hover-text-white">Home</a></li>
-                        <li><a href="#services" class="text-light-gray hover-text-white">Services</a></li>
-                        <li><a href="#about" class="text-light-gray hover-text-white">About Us</a></li>
-                        <li><a href="#portfolio" class="text-light-gray hover-text-white">Portfolio</a></li>
-                        <li><a href="#contact" class="text-light-gray hover-text-white">Contact</a></li>
-                        <li><a href="#" class="text-light-gray hover-text-white">Privacy Policy (Soon)</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 class="text-white">Our <span class="text-red">Services</span></h4>
-                    <ul>
-                        <li><a href="#services" class="text-light-gray hover-text-white">Boost & Promote</a></li>
-                        <li><a href="#services" class="text-light-gray hover-text-white">Premium Accounts</a></li>
-                        <li><a href="#services" class="text-light-gray hover-text-white">Logo Design</a></li>
-                        <li><a href="#services" class="text-light-gray hover-text-white">Online Training</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 class="text-white">Reach <span class="text-red">Us</span></h4>
-                    <p class="text-light-gray"><i class="fas fa-phone-alt text-red"></i> <a href="tel:+959967510401" class="text-light-gray hover-text-white">+959967510401</a></p>
-                    <p class="text-light-gray"><i class="fas fa-envelope text-red"></i> <a href="mailto:itpwelay@gmail.com" class="text-light-gray hover-text-white">itpwelay@gmail.com</a></p>
-                    <div class="social-links-footer">
-                        <a href="https://facebook.com/" target="_blank" aria-label="Facebook" class="text-light-gray hover-text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://tiktok.com/" target="_blank" aria-label="TikTok" class="text-light-gray hover-text-white"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube" class="text-light-gray hover-text-white"><i class="fab fa-youtube"></i></a>
-                        <a href="https://github.com/" target="_blank" aria-label="GitHub" class="text-light-gray hover-text-white"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
+            <h2>About Us</h2>
+            <p>1Network (All In One Studio) is dedicated to providing top-notch digital and creative solutions to help your business thrive in the online world. We believe in quality, affordability, and customer satisfaction.</p>
+            <p><strong>Founder:</strong> Saw Eh Pwe Soe</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>We're here to help! Contact us for any inquiries or to get started with our services.</p>
+            <div class="contact-details">
+                <p><i class="fas fa-phone"></i> Phone: <a href="tel:+959967510401">+959 967 510 401</a></p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:itpwelay@gmail.com">itpwelay@gmail.com</a></p>
             </div>
-            <div class="footer-bottom">
-                <p class="text-light-gray">© Founded <span id="foundedYear">2023</span> - <span id="currentYear"></span> 1Network (All In One Studio). Founder: Saw Eh Pwe Soe. All Rights Reserved.</p>
+            <div class="social-media">
+                <a href="YOUR_FACEBOOK_LINK" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="YOUR_TIKTOK_LINK" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="YOUR_YOUTUBE_LINK" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="YOUR_GITHUB_LINK" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> 1Network (All In One Studio). All Rights Reserved.</p>
+            <p>Founded: 2024 (Please update with your actual founding year)</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Script to set the current year in the footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
 </body>
 </html>
