@@ -3,734 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1Network - All In One Studio | Digital Services</title>
-    <meta name="description" content="1Network - All In One Studio offers boost & promote services, premium accounts, logo design, Google Maps marketing, and online training.">
-    <style>
-        /* --- Reset & Base Styles --- */
-        :root {
-            --primary-bg: #1A1A2E; /* Dark Navy/Purple - sophisticated dark mode */
-            --secondary-bg: #162447; /* Slightly Lighter Navy for elements */
-            --card-bg: #1F4068;    /* A distinct card background */
-            --text-color: #EAEAEA;   /* Light Gray/Off-White */
-            --accent-color: #10B981; /* Emerald Green - vibrant & trustworthy */
-            --hover-accent-color: #059669; /* Darker Emerald Green */
-            --font-primary: 'Roboto', 'Arial', sans-serif; /* Modern, clean sans-serif (add Google Font import for Roboto) */
-            --font-secondary: 'Montserrat', 'Georgia', serif; /* For headings (add Google Font import for Montserrat) */
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
-        body {
-            font-family: var(--font-primary);
-            background-color: var(--primary-bg);
-            color: var(--text-color);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        /* --- Typography --- */
-        h1, h2, h3, h4 {
-            font-family: var(--font-secondary);
-            color: var(--accent-color);
-            margin-bottom: 0.85em;
-            line-height: 1.3;
-            font-weight: 700; /* Bolder headings */
-        }
-
-        h1 { font-size: 2.9rem; letter-spacing: 1px; }
-        h2 { font-size: 2.3rem; }
-        h3 { font-size: 1.5rem; color: var(--text-color); /* Default h3 on cards more subtle */}
-        h3.section-title { color: var(--accent-color); text-align: center; margin-bottom: 2.5rem;} /* For main section titles */
-        p { margin-bottom: 1.2rem; font-size: 1.05rem; }
-        a { color: var(--accent-color); text-decoration: none; }
-        a:hover { color: var(--hover-accent-color); text-decoration: underline; }
-
-        /* --- Layout & Container --- */
-        .container {
-            width: 90%;
-            max-width: 1200px; /* Slightly wider for more content */
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-
-        section {
-            padding: 5rem 0; /* More spacing between sections */
-            border-bottom: 1px solid var(--secondary-bg);
-        }
-        section:last-of-type {
-            border-bottom: none;
-        }
-
-        /* --- Header & Navigation --- */
-        .main-header {
-            background-color: var(--secondary-bg);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.4);
-        }
-
-        .main-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem 0;
-        }
-
-        .logo {
-            font-size: 1.9rem;
-            font-weight: 700;
-            color: var(--text-color); /* White for Logo Name */
-            font-family: var(--font-secondary);
-        }
-        .logo span {
-            color: var(--accent-color); /* Accent for "1Network" */
-        }
-        .logo .tagline {
-            font-size: 0.7rem;
-            display: block;
-            color: #aaa;
-            letter-spacing: 0.5px;
-            font-weight: 400;
-            margin-top: -5px;
-        }
-
-
-        .main-nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        .main-nav ul li {
-            margin-left: 2.2rem;
-        }
-
-        .main-nav ul li a {
-            color: var(--text-color);
-            font-size: 1rem;
-            font-weight: 500;
-            transition: color 0.3s ease, transform 0.2s ease;
-            padding-bottom: 5px;
-            border-bottom: 2px solid transparent;
-        }
-
-        .main-nav ul li a:hover,
-        .main-nav ul li a.active {
-            color: var(--accent-color);
-            border-bottom-color: var(--accent-color);
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 2rem;
-            background: none;
-            border: none;
-            color: var(--text-color);
-            cursor: pointer;
-        }
-
-        /* --- Hero Section --- */
-        #hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(22, 36, 71, 0.9)), url('https://via.placeholder.com/1920x1080.png?text=1Network+Digital+Solutions') no-repeat center center/cover; /* Replace with your image */
-            position: relative;
-        }
-        /* Optional: subtle particle/overlay effect could be added here with JS or CSS animations */
-
-        .hero-content {
-            max-width: 800px; /* Wider hero content */
-        }
-
-        .hero-content h1 {
-            font-size: 3.8rem;
-            margin-bottom: 1rem;
-            color: #fff;
-            font-weight: 700;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-        }
-        .hero-content .subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
-            color: var(--text-color);
-            font-weight: 300;
-        }
-
-        /* --- Buttons --- */
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--primary-bg);
-            padding: 0.9rem 2rem;
-            border-radius: 8px; /* Softer radius */
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            border: 2px solid var(--accent-color);
-            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
-        }
-
-        .btn:hover {
-            background-color: var(--hover-accent-color);
-            color: var(--text-color);
-            text-decoration: none;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(16, 185, 129, 0.5);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--accent-color);
-            border: 2px solid var(--accent-color);
-            box-shadow: none;
-        }
-        .btn-secondary:hover {
-            background-color: var(--accent-color);
-            color: var(--primary-bg);
-            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
-        }
-
-        /* --- About Section --- */
-        #about .container {
-            display: flex;
-            gap: 3rem;
-            align-items: center;
-        }
-        #about .about-text {
-            flex: 1.2; /* More space for text */
-        }
-        #about .about-image-container {
-            flex: 0.8;
-            text-align: center;
-        }
-        #about .about-image {
-            max-width: 100%;
-            height: auto;
-            max-height: 400px;
-            border-radius: 10px;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-
-        /* --- Services Section --- */
-        #services { background-color: var(--secondary-bg); } /* Slight contrast for services section */
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .service-card {
-            background-color: var(--card-bg);
-            padding: 2.5rem 2rem;
-            border-radius: 10px;
-            text-align: left; /* Content aligned left for more detail */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
-        }
-
-        .service-card .icon {
-            font-size: 2.8rem;
-            color: var(--accent-color);
-            margin-bottom: 1.2rem;
-            /* Example: Use FontAwesome or SVG here */
-            height: 50px; /* Fixed height for icon alignment */
-            line-height: 50px;
-        }
-        .service-card h3 {
-            color: var(--text-color); /* Ensure heading is bright on card */
-            margin-bottom: 0.8rem;
-            font-size: 1.4rem;
-        }
-        .service-card p {
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            flex-grow: 1; /* Makes p take available space pushing button down */
-        }
-        .service-card ul {
-            list-style: none; /* Remove default bullets */
-            padding-left: 0;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-        }
-        .service-card ul li {
-            padding-left: 1.5em;
-            position: relative;
-            margin-bottom: 0.5em;
-        }
-        .service-card ul li::before {
-            content: '✓'; /* Unicode checkmark */
-            color: var(--accent-color);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-        .service-card .btn {
-            padding: 0.6rem 1.2rem;
-            font-size: 0.85rem;
-            align-self: flex-start; /* Align button to the start of the flex container */
-        }
-
-
-        /* --- Call to Action (CTA) Section --- */
-        #cta {
-            background: linear-gradient(45deg, var(--accent-color), var(--hover-accent-color));
-            text-align: center;
-        }
-        #cta h2, #cta p {
-            color: var(--primary-bg); /* Dark text on light accent bg */
-        }
-        #cta .btn {
-            background-color: var(--text-color);
-            color: var(--primary-bg);
-            margin-top:1.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        #cta .btn:hover {
-            background-color: var(--primary-bg);
-            color: var(--text-color);
-            border-color: var(--primary-bg);
-        }
-
-
-        /* --- Contact Section --- */
-        .contact-form {
-            max-width: 700px; /* Wider form */
-            margin: 2.5rem auto 0;
-            background: var(--secondary-bg);
-            padding: 3rem; /* More padding */
-            border-radius: 10px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
-
-        .form-group {
-            margin-bottom: 1.8rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.6rem;
-            font-weight: bold;
-            color: var(--text-color);
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.9rem 1rem;
-            border-radius: 6px;
-            border: 1px solid #444; /* Slightly lighter border */
-            background-color: var(--primary-bg);
-            color: var(--text-color);
-            font-size: 1rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
-        }
-
-        .form-group textarea {
-            min-height: 160px;
-            resize: vertical;
-        }
-
-        /* --- Footer --- */
-        .main-footer {
-            background-color: #111; /* Darker footer */
-            color: #999;
-            text-align: center;
-            padding: 3rem 0;
-            font-size: 0.9rem;
-        }
-        .main-footer p {
-            margin-bottom: 0.5rem;
-        }
-        .main-footer a {
-            color: var(--accent-color);
-        }
-        .main-footer a:hover {
-            color: var(--hover-accent-color);
-        }
-
-
-        /* --- Responsive Design --- */
-        @media (max-width: 992px) { /* Tablet breakpoint */
-            .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-             #about .container {
-                flex-direction: column;
-                text-align: center;
-            }
-            #about .about-image-container {
-                margin-top: 2rem;
-                max-width: 400px;
-            }
-        }
-
-        @media (max-width: 768px) { /* Mobile breakpoint */
-            h1 { font-size: 2.3rem; }
-            .hero-content h1 { font-size: 2.6rem; }
-            h2 { font-size: 1.9rem; }
-
-            .main-header .container {
-                flex-direction: row; /* Keep logo and toggle on same line */
-                position: relative;
-            }
-            .logo { font-size: 1.6rem; }
-            .logo .tagline { display: none; } /* Hide tagline on small screens */
-
-
-            .menu-toggle {
-                display: block;
-                /* position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                right: 0; If container padding is an issue */
-            }
-
-            .main-nav {
-                position: absolute;
-                top: 100%; /* Position below header */
-                left: 0;
-                width: 100%;
-                background-color: var(--secondary-bg);
-                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-                /* display: none; Managed by JS */
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.5s ease-in-out;
-            }
-
-            .main-nav.active {
-                max-height: 500px; /* Or enough to show all items */
-            }
-
-            .main-nav ul {
-                flex-direction: column;
-                width: 100%;
-                padding: 1rem 0;
-            }
-
-            .main-nav ul li {
-                margin: 0;
-                text-align: center;
-            }
-            .main-nav ul li a {
-                display: block;
-                padding: 0.8rem 1rem;
-                border-bottom: 1px solid var(--primary-bg);
-            }
-            .main-nav ul li:last-child a {
-                border-bottom: none;
-            }
-            .main-nav ul li a:hover,
-            .main-nav ul li a.active {
-                background-color: var(--accent-color);
-                color: var(--primary-bg);
-                border-bottom-color: var(--accent-color); /* Maintain consistency */
-            }
-
-            .contact-form { padding: 2rem; }
-        }
-
-        @media (max-width: 480px) {
-            :root {
-                font-size:15px;
-            }
-            .hero-content h1 { font-size: 2.2rem; }
-            .hero-content .subtitle { font-size: 1.1rem; }
-            .container { width: 95%; }
-            .service-card { padding: 1.8rem 1.5rem; }
-            .btn { padding: 0.8rem 1.5rem; font-size: 0.9rem;}
-            section { padding: 3.5rem 0;}
-        }
-
-        /* Accessibility: Focus Visible */
-        :focus-visible {
-            outline: 3px solid var(--accent-color);
-            outline-offset: 3px;
-            border-radius: 4px; /* Optional: makes outline follow border radius */
-        }
-        .btn:focus-visible {
-            outline-color: var(--text-color);
-        }
-        .form-group input:focus-visible,
-        .form-group textarea:focus-visible {
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.5) !important; /* Override other focus for consistency */
-        }
-
-    </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
+    <title>1Network - All In One Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="main-header" role="banner">
-        <div class="container">
+    <header>
+        <nav class="container">
             <a href="#hero" class="logo">
-                <span>1Network</span>
-                <span class="tagline">All In One Studio</span>
+                <img src="image.png" alt="1Network Logo">
+                <div class="logo-text-container">
+                     <p class="tagline-header">All In One Studio</p>
+                </div>
             </a>
-            <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNavMenu">
-                &#9776; </button>
-            <nav class="main-nav" role="navigation" id="mainNavMenu">
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+        </nav>
     </header>
 
-    <main role="main">
-        <section id="hero" aria-labelledby="hero-title">
-            <div class="container hero-content">
-                <h1 id="hero-title"><span>1Network:</span> Your All-In-One Digital Solution</h1>
-                <p class="subtitle">Elevate your brand with our expert promotion, premium account access, stunning logo designs, targeted marketing, and empowering online training.</p>
-                <a href="#services" class="btn">Explore Our Services</a>
-                <a href="#contact" class="btn btn-secondary" style="margin-left:15px;">Get a Quote</a>
-            </div>
-        </section>
-
-        <section id="about" aria-labelledby="about-title">
-            <div class="container">
-                <div class="about-text">
-                    <h2 id="about-title" class="section-title" style="text-align:left;">Welcome to <span>1Network</span> Studio</h2>
-                    <p>At 1Network (All In One Studio), we are your dedicated partners in navigating the digital world. We specialize in providing a comprehensive suite of services designed to boost your online presence, streamline your access to premium tools, and enhance your brand's visual identity.</p>
-                    <p>Our mission is to deliver top-tier solutions with a focus on results, creativity, and customer satisfaction. Whether you're looking to expand your reach, acquire essential digital assets, or build a memorable brand, our team is here to make it happen.</p>
-                </div>
-                <div class="about-image-container" role="img" aria-label="Modern office workspace or creative team">
-                     <img src="https://via.placeholder.com/450x350.png?text=1Network+Studio+Team" alt="A dynamic team collaborating in a creative studio environment at 1Network." class="about-image">
-                </div>
-            </div>
-        </section>
-
-        <section id="services" aria-labelledby="services-title">
-            <div class="container">
-                <h2 id="services-title" class="section-title">Our Comprehensive Services</h2>
-                <p style="text-align: center; max-width: 700px; margin-left:auto; margin-right:auto; margin-bottom: 3rem;">We offer a diverse range of digital services to meet all your online needs under one roof.</p>
-                <div class="services-grid">
-                    <article class="service-card">
-                        <div class="icon" aria-hidden="true">&#128200;</div> <h3>Boost & Promote Service</h3>
-                        <p>Amplify your reach and engagement across major social media platforms. We craft targeted campaigns to grow your audience and enhance your online visibility.</p>
-                        <ul>
-                            <li>Facebook & Instagram Growth</li>
-                            <li>TikTok Viral Strategies</li>
-                            <li>YouTube Channel Promotion</li>
-                            <li>And more...</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-secondary">Boost Now</a>
-                    </article>
-
-                    <article class="service-card">
-                        <div class="icon" aria-hidden="true">&#128273;</div> <h3>Premium Account Sales</h3>
-                        <p>Get access to essential premium tools and entertainment platforms at competitive prices. Secure and reliable accounts to boost your productivity and enjoyment.</p>
-                        <ul>
-                            <li>CapCut Pro for Editing</li>
-                            <li>Netflix, Amazon Prime Video</li>
-                            <li>Zoom Pro for Meetings</li>
-                            <li>Other creative & productivity tools</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-secondary">Get Accounts</a>
-                    </article>
-
-                    <article class="service-card">
-                        <div class="icon" aria-hidden="true">&#127912;</div> <h3>Logo & Brand Design</h3>
-                        <p>Create a memorable brand identity with our professional design services. From logos to complete branding packages, we bring your vision to life.</p>
-                        <ul>
-                            <li>Profile & Company Logos</li>
-                            <li>Social Media Cover Photos</li>
-                            <li>Business Card Design</li>
-                            <li>Brand Style Guides</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-secondary">Design Yours</a>
-                    </article>
-
-                    <article class="service-card">
-                        <div class="icon" aria-hidden="true">&#128205;</div> <h3>Google Maps Marketing</h3>
-                        <p>Increase your local visibility and attract more customers with optimized Google Maps listings and targeted local SEO strategies.</p>
-                        <ul>
-                            <li>Google My Business Optimization</li>
-                            <li>Local Citation Building</li>
-                            <li>Review Management</li>
-                            <li>Geo-targeted Ads</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-secondary">Go Local</a>
-                    </article>
-
-                    <article class="service-card">
-                        <div class="icon" aria-hidden="true">&#128187;</div> <h3>Online Training Groups</h3>
-                        <p>Join our expert-led online training groups to master new digital skills. Interactive sessions and practical knowledge to help you grow personally and professionally.</p>
-                        <ul>
-                            <li>Digital Marketing Fundamentals</li>
-                            <li>Social Media Management</li>
-                            <li>Graphic Design Basics</li>
-                            <li>Customized Group Training</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-secondary">Join Training</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="cta" aria-labelledby="cta-title">
-            <div class="container">
-                <h2 id="cta-title">Ready to Elevate Your Digital Presence?</h2>
-                <p>Partner with 1Network (All In One Studio) and let's achieve your online goals together. We're excited to hear about your project!</p>
-                <a href="#contact" class="btn">Let's Talk</a>
-            </div>
-        </section>
-
-        <section id="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <h2 id="contact-title" class="section-title">Get In Touch With Us</h2>
-                <p style="text-align: center; max-width: 700px; margin-left:auto; margin-right:auto; margin-bottom: 2rem;">Questions? Project ideas? Fill out the form, and our team at 1Network will respond promptly. You can also reach us via [Your Email] or [Your Phone - Optional].</p>
-                <form class="contact-form" action="#" method="POST"> <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <div class="form-group" style="flex: 1; min-width: 250px;">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required aria-required="true" placeholder="e.g., John Doe">
-                        </div>
-                        <div class="form-group" style="flex: 1; min-width: 250px;">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required aria-required="true" placeholder="e.g., john.doe@example.com">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="service-interest">Service of Interest (Optional)</label>
-                        <select id="service-interest" name="service-interest" style="width: 100%; padding: 0.9rem 1rem; border-radius: 6px; border: 1px solid #444; background-color: var(--primary-bg); color: var(--text-color); font-size: 1rem;">
-                            <option value="">-- Select a Service --</option>
-                            <option value="boost-promote">Boost & Promote Service</option>
-                            <option value="premium-accounts">Premium Account Sales</option>
-                            <option value="logo-design">Logo & Brand Design</option>
-                            <option value="maps-marketing">Google Maps Marketing</option>
-                            <option value="online-training">Online Training Group</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Message / Project Details</label>
-                        <textarea id="message" name="message" required aria-required="true" placeholder="Tell us about your needs..."></textarea>
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%; padding-top: 1rem; padding-bottom: 1rem; font-size: 1.1rem;">Send Your Inquiry</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer class="main-footer" role="contentinfo">
+    <section id="hero" class="hero-section">
         <div class="container">
-            <p>&copy; <span id="currentYear"></span> <strong>1Network (All In One Studio)</strong>. All Rights Reserved.</p>
-            <p>Your Partner in Digital Excellence | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            <h2>Welcome to 1Network</h2>
+            <p class="tagline">Your Premier Partner for Digital Growth and Creative Solutions.</p>
+            <a href="#services" class="btn btn-primary">Explore Our Services</a>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <i class="fas fa-rocket service-icon"></i>
+                    <h3>Boost & Promote Services</h3>
+                    <p>Amplify your reach on platforms like Facebook, TikTok, YouTube, and more. We create targeted campaigns to grow your audience and engagement.</p>
+                    <a href="#contact" class="btn btn-secondary">Get Started</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tags service-icon"></i>
+                    <h3>Sale Premium Accounts</h3>
+                    <p>Access exclusive features with premium accounts for CapCut, Netflix, Zoom, Canva Pro, and other popular services at competitive prices.</p>
+                    <a href="#contact" class="btn btn-secondary">View Accounts</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-palette service-icon"></i>
+                    <h3>Logo Design Service</h3>
+                    <p>Craft a unique brand identity with our professional logo design services. We create profile logos, cover photos, business cards, and more.</p>
+                    <a href="#contact" class="btn btn-secondary">Design My Logo</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-users-cog service-icon"></i>
+                    <h3>Online Training Groups</h3>
+                    <p>Join our expert-led online training groups to master new skills in digital marketing, design, and other in-demand areas. (More details coming soon!)</p>
+                    <a href="#contact" class="btn btn-secondary">Join Training</a>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About 1Network Studio</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>1Network (All In One Studio) is your dedicated partner for navigating the digital landscape. We are passionate about helping businesses and individuals thrive online through a comprehensive suite of services. From boosting your social media presence to providing essential premium tools and crafting stunning visual identities, our mission is to deliver excellence and tangible results.</p>
+                    <p>We believe in innovation, quality, and building lasting relationships with our clients. Let us be the catalyst for your digital success story.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/400x300?text=Our+Team+or+Studio" alt="1Network Studio Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">Our Recent Work</h2>
+            <p class="text-center">Here's a glimpse of what we can create. (Portfolio items coming soon!)</p>
+            <div class="portfolio-grid">
+                <div class="portfolio-item"><img src="https://via.placeholder.com/350x250?text=Project+Alpha" alt="Project Alpha"></div>
+                <div class="portfolio-item"><img src="https://via.placeholder.com/350x250?text=Project+Beta" alt="Project Beta"></div>
+                <div class="portfolio-item"><img src="https://via.placeholder.com/350x250?text=Project+Gamma" alt="Project Gamma"></div>
+            </div>
+        </div>
+    </section>
+
+     <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"1Network drastically improved our online presence. Highly recommended!"</p>
+                    <h4>- Client A, CEO of ExampleCorp</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The premium accounts are a lifesaver, and the logo they designed was perfect."</p>
+                    <h4>- Client B, Freelancer</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-wrapper">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In:</label>
+                            <select id="service" name="service">
+                                <option value="">--Select a Service--</option>
+                                <option value="boost">Boost & Promote</option>
+                                <option value="premium">Premium Accounts</option>
+                                <option value="logo">Logo Design</option>
+                                <option value="training">Online Training</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Details</h3>
+                    <p><i class="fas fa-phone"></i> Phone: <a href="tel:+959967510401">+959967510401</a></p>
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:itpwelay@gmail.com">itpwelay@gmail.com</a></p>
+                    
+                    <h3>Connect With Us</h3>
+                    <div class="social-links-contact">
+                        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p class="address-info">
+                        Based in Myanmar (Burma)<br>
+                        </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo-area">
+                    <img src="image.png" alt="1Network Logo Footer" class="footer-img-logo">
+                    <div class="footer-tagline">
+                        <p>1Network</p>
+                        <p class="small-tagline">All In One Studio</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li> </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> +959967510401</p>
+                    <p><i class="fas fa-envelope"></i> itpwelay@gmail.com</p>
+                    <div class="social-links-footer">
+                        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">© 2024-2025 1Network (All In One Studio). All Rights Reserved.</p>
+        </div>
     </footer>
 
-    <script>
-        // --- Mobile Menu Toggle ---
-        const menuToggle = document.querySelector('.menu-toggle');
-        const mainNav = document.querySelector('.main-nav');
-
-        if (menuToggle && mainNav) {
-            menuToggle.addEventListener('click', () => {
-                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-                menuToggle.setAttribute('aria-expanded', !isExpanded);
-                mainNav.classList.toggle('active');
-            });
-        }
-
-        // --- Smooth scroll & Active Link Highlighting ---
-        const navLinks = document.querySelectorAll('.main-nav a, .logo, .hero-content a.btn, .service-card a.btn, #cta a.btn');
-        const sections = document.querySelectorAll('section'); // Make sure all target sections have an ID
-
-        function changeActiveLink() {
-            let index = sections.length;
-            while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
-
-            document.querySelectorAll('.main-nav a').forEach((link) => link.classList.remove('active'));
-            const activeNavLinK = document.querySelector(`.main-nav a[href="#${sections[index] ? sections[index].id : ''}"]`);
-            if (activeNavLinK) {
-                activeNavLinK.classList.add('active');
-            }
-        }
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                // Only prevent default for internal links
-                if (href && href.startsWith('#') && href.length > 1) {
-                    e.preventDefault();
-                    const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
-
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                        // Close mobile menu if open and link is clicked
-                        if (mainNav.classList.contains('active')) {
-                            menuToggle.setAttribute('aria-expanded', 'false');
-                            mainNav.classList.remove('active');
-                        }
-                    }
-                }
-            });
-        });
-
-        window.addEventListener('scroll', changeActiveLink);
-        changeActiveLink(); // Initial call
-
-        // --- Update Footer Year ---
-        const currentYearElement = document.getElementById('currentYear');
-        if (currentYearElement) {
-            currentYearElement.textContent = new Date().getFullYear();
-        }
-
-        // --- Accessibility: Close mobile menu if user clicks outside ---
-        document.addEventListener('click', function(event) {
-            if (mainNav && menuToggle) {
-                const isClickInsideNav = mainNav.contains(event.target);
-                const isClickOnToggle = menuToggle.contains(event.target);
-
-                if (!isClickInsideNav && !isClickOnToggle && mainNav.classList.contains('active')) {
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                    mainNav.classList.remove('active');
-                }
-            }
-        });
-
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
