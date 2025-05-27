@@ -1,83 +1,89 @@
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    const navLinkItems = document.querySelectorAll('.nav-links li a'); // Get all nav links
+    const navLinkItems = document.querySelectorAll('.nav-links a');
+    const header = document.getElementById('header');
 
-    // Toggle mobile menu
+    // Mobile Menu Toggle
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
         });
     }
 
     // Close mobile menu when a link is clicked
-    if (navLinkItems && navLinks) {
-        navLinkItems.forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                }
-            });
+    navLinkItems.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
         });
-    }
+    });
 
-    // Optional: Contact form submission handling (frontend only - prevent default and log)
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevents the default form submission
-            
-            const formData = new FormData(contactForm);
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
-            
-            console.log("Form Data Submitted: ", data);
-            alert("Thank you for your message! We will get back to you soon. (This is a demo - form data logged to console.)");
-            
-            contactForm.reset(); // Clears the form fields
-        });
-    }
-
-    // Active link highlighting on scroll and click
+    // Sticky Header & Active Link Styling on Scroll
     const sections = document.querySelectorAll('section[id]');
-    
-    function setActiveLink() {
-        let currentSection = '';
-        // Adjust scrollY position check to be slightly above the section top
-        // to trigger highlighting a bit earlier, useful for fixed headers.
-        const scrollPosition = window.pageYOffset + (window.innerHeight / 3); 
+    function scrollActive() {
+        const scrollY = window.pageYOffset;
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                currentSection = section.getAttribute('id');
+        // Sticky header logic (optional, if you want it to change style on scroll)
+        if (header) {
+            if (scrollY > 80) { // Adjust this value as needed
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+        
+        let currentSectionId = '';
+        sections.forEach(current => {
+            const sectionHeight = current.offsetHeight;
+            const sectionTop = current.offsetTop - 100; // Adjust offset if needed
+            
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                currentSectionId = current.getAttribute('id');
             }
         });
 
         navLinkItems.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href').substring(1) === currentSection) {
+            if (link.getAttribute('href').substring(1) === currentSectionId) {
                 link.classList.add('active');
             }
         });
+        // Ensure home is active if at top and no other section is matched
+        if (currentSectionId === '' && scrollY < sections[0].offsetTop -100) {
+             document.querySelector('.nav-links a[href="#hero"]').classList.add('active');
+        }
+    }
+    window.addEventListener('scroll', scrollActive);
+    scrollActive(); // Initial call
+
+    // Contact Form Submission (Frontend Placeholder)
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+            
+            console.log("Form Data Submitted (Frontend): ", data);
+            alert("Thank you for your message, " + data.name + "! We'll be in touch soon. (This is a frontend demo.)");
+            
+            contactForm.reset();
+            // Here, you would typically send 'data' to a backend server using fetch() or XMLHttpRequest.
+            // Example:
+            // fetch('/your-backend-endpoint', { method: 'POST', body: JSON.stringify(data), headers: {'Content-Type': 'application/json'} })
+            // .then(response => response.json())
+            // .then(result => console.log('Success:', result))
+            // .catch(error => console.error('Error:', error));
+        });
     }
 
-    window.addEventListener('scroll', setActiveLink);
-    window.addEventListener('load', setActiveLink); // Set active link on page load
-
-    // Also handle click to set active immediately
-    navLinkItems.forEach(link => {
-        link.addEventListener('click', function() {
-            navLinkItems.forEach(item => item.classList.remove('active'));
-            this.classList.add('active');
-            // Smooth scroll is handled by CSS `scroll-behavior: smooth;`
-            // If mobile menu is open, close it
-             if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-            }
-        });
-    });
+    // Set Current Year in Footer
+    const currentYearSpan = document.getElementById('currentYear');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
 });
