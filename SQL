@@ -1,0 +1,23 @@
+-- Create the database (if it doesn't exist)
+CREATE DATABASE IF NOT EXISTS `1network_db`;
+
+-- Use the database
+USE `1network_db`;
+
+-- Create the services table
+CREATE TABLE IF NOT EXISTS `services` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `title` VARCHAR(255) NOT NULL,
+    `description` TEXT,
+    `icon_class` VARCHAR(255) -- For Font Awesome icons or similar
+);
+
+-- Insert some sample services
+INSERT INTO `services` (`title`, `description`, `icon_class`) VALUES
+('Boost & Promote Services', 'Elevate your online presence on platforms like Facebook, TikTok, and YouTube. We provide effective strategies to boost your reach and engagement.', 'fas fa-bullhorn'),
+('Sale Premium Accounts', 'Access premium features on popular platforms like CapCut, Netflix, Zoom, and more. Enjoy enhanced experiences with our affordable premium accounts.', 'fas fa-crown'),
+('Logo Design Service', 'Craft unique and memorable brand identities. We design professional logos for profiles, cover photos, business cards, and all your branding needs.', 'fas fa-palette'),
+('Google Maps Marketing Service', 'Increase your local visibility and attract more customers. Optimize your presence on Google Maps with our targeted marketing strategies.', 'fas fa-map-marked-alt'),
+('Online Training Groups', 'Join our exclusive online training groups to enhance your skills in various digital domains. Learn from experts and connect with like-minded individuals.', 'fas fa-users-cog');
+
+-- You can add more services here
